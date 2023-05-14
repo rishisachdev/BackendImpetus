@@ -1,14 +1,10 @@
 package com.example.springinit.login.dto;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 /*public enum UserType {
     distributor,
     retailer
 }
-*/
+ */
 public class UserDTO {
 	private int entryNo;
 	private String name;
@@ -34,15 +30,6 @@ public class UserDTO {
 
 	public void setVerifyPassword(String verifyPassword) {
 		this.verifyPassword = verifyPassword;
-	}
-
-	@Override
-	public String toString() {
-		return "UserDTO [entryNo=" + entryNo + ", name=" + name + ", contact=" + contact + ", area=" + area + ", city="
-				+ city + ", email=" + email + ", password=" + password + ", verifyPassword=" + verifyPassword + "]";
-	}
-
-	public UserDTO() {
 	}
 
 	public int getEntryNo() {
@@ -91,7 +78,7 @@ public class UserDTO {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
 	/*public UserType getUserType() {
 	    return userType;
 	}
@@ -99,7 +86,17 @@ public class UserDTO {
 	public void setUserType(UserType userType) {
 	    this.userType = userType;
 	}
-	*/
+	 */
+
+	@Override
+	public String toString() {
+		return "UserDTO [entryNo=" + entryNo + ", name=" + name + ", contact=" + contact + ", area=" + area + ", city="
+				+ city + ", email=" + email + ", password=" + password + ", verifyPassword=" + verifyPassword + "]";
+	}
+
+	public UserDTO() {
+	}
+
 	public UserDTO(int entryNo, String name,int contact, String area, String city, String password) {
 		super();
 		this.entryNo=entryNo;

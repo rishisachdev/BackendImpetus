@@ -1,28 +1,23 @@
 package com.example.springinit.login.service.impl;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import com.example.springinit.login.dto.LoginDTO;
 import com.example.springinit.login.dto.UserDTO;
 import com.example.springinit.login.entity.User;
 import com.example.springinit.login.repo.UserRepo;
-//import com.example.springinit.login.service.UserService;
-import com.example.springinit.login.service.impl.pass;
 import com.example.springinit.response.LoginResponse;
-import com.example.springinit.login.service.impl.UserService;
+
 @Service
 public class UserImpl implements UserService{
 
 	@Autowired
     private UserRepo userRepo;
+	
 	@Autowired
     private PasswordEncoder passwordEncoder;
+	
 	@Override
 	public String addUser(UserDTO userDTO) {
 		// TODO Auto-generated method stub
@@ -35,7 +30,9 @@ public class UserImpl implements UserService{
 				 userDTO.getEmail(),
 				 this.passwordEncoder.encode(userDTO.getPassword())
 				 );
+		 
 		 	userRepo.save(user);
+		 	
 	        return user.getName();
 	} 
 	@Override
@@ -65,6 +62,6 @@ public class UserImpl implements UserService{
 				else 
 				{
 				return new LoginResponse("Email not exits",false);
-	    }
+				}
 	}
 }

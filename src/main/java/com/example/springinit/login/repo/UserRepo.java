@@ -9,6 +9,7 @@ import com.example.springinit.login.entity.User;
 
 @EnableJpaRepositories
 @Repository
+
 public interface UserRepo extends JpaRepository<User,String>{
 	  Optional<User> findOneByEmailAndPassword(String email, String password);
 	    User findByEmail(String email);
