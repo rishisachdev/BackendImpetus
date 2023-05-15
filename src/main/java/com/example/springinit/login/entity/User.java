@@ -13,7 +13,9 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table (name="user")
+
 public class User {
+
 	@Id
 	@Column (name="entryNo", length = 45)
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -30,7 +32,8 @@ public class User {
 	private String email;
 	@Column (name="password", length = 255)
 	private String password;
-   /* @Enumerated(EnumType.STRING) // add this annotation to map the UserType enum to a string column
+
+	/* @Enumerated(EnumType.STRING) // add this annotation to map the UserType enum to a string column
     @Column(name = "user_type", length = 20) // adjust length to match the max length of the UserType values
     private UserType userType;
 
@@ -41,7 +44,7 @@ public class User {
 	public void setUserType(UserType userType) {
 		this.userType = userType;
 	}*/
-	
+
 	public int getEntryNo() {
 		return entryNo;
 	}
@@ -62,11 +65,7 @@ public class User {
 		return contact;
 	}
 
-	@Override
-	public String toString() {
-		return "User [entryNo=" + entryNo + ", name=" + name + ", contact=" + contact + ", area=" + area + ", city="
-				+ city + ", email=" + email + ", password=" + password +"]";
-	}
+
 
 	public void setContact(int contact) {
 		this.contact = contact;
@@ -102,16 +101,22 @@ public class User {
 		this.password = password;
 	}
 	
+	@Override
+	public String toString() {
+		return "User [entryNo=" + entryNo + ", name=" + name + ", contact=" + contact + ", area=" + area + ", city="
+				+ city + ", email=" + email + ", password=" + password +"]";
+	}
+
 	public User() {
-    }
-	
-    public User(int entryNo,String name, int contact, String area, String city, String email, String password) {
-        this.name = name;
-        this.contact = contact;
-        this.area = area;
-        this.city = city;
-        this.email=email;
-        this.password = password;
-        //this.userType = userType;
-}
+	}
+
+	public User(int entryNo,String name, int contact, String area, String city, String email, String password) {
+		this.name = name;
+		this.contact = contact;
+		this.area = area;
+		this.city = city;
+		this.email=email;
+		this.password = password;
+		//this.userType = userType;
+	}
 }
