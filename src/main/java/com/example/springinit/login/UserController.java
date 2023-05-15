@@ -19,7 +19,7 @@ public class UserController
 	@Autowired
 	private UserService userService;
 	@PostMapping(path="/save")
-	
+
 	public String saveUser(@RequestBody UserDTO dto)
 	{
 		String id= userService.addUser(dto);
@@ -28,7 +28,7 @@ public class UserController
 	@GetMapping (path = "/login")
 	public ResponseEntity<?>loginEmployee(@RequestBody LoginDTO loginDTO)
 	{
-	LoginResponse loginResponse = userService.loginUser(loginDTO);
-	return ResponseEntity.ok(loginResponse);
-}
+		LoginResponse loginResponse = userService.loginUser(loginDTO);
+		return ResponseEntity.ok(loginResponse);
 	}
+}
